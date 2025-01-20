@@ -1,11 +1,13 @@
 import React from "react";
 
-function Task() {
+function Task({ task, deleteTask }) {
+  if (!task) return null; // Prevents undefined task errors
+
   return (
     <div className="task">
-      <div className="label">CATEGORY HERE</div>
-      <div className="text">TEXT HERE</div>
-      <button className="delete">X</button>
+      <span>{task.text}</span>
+      <span className="category">{task.category}</span>
+      <button className="delete" onClick={() => deleteTask(task.id)}>X</button>
     </div>
   );
 }
